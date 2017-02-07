@@ -4,24 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                parallel(
-                    message: {
-                        echo 'Building...'
-                    },
-                    build: {
-                        sh 'composer install'
-                    }
-                )
+                sh 'composer install'
             }
         }
         stage('Test') {
             steps {
                 parallel(
-                    message: {
-                        echo 'Testing...'
-                    },
                     test: {
                         sh 'make test'
+                    },
+                    lint: {
+                        sh '! find . -type f -name "*.php" -exec php -l {} \; | grep -v "No syntax errors"'
                     }
                 )
             }
