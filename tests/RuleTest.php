@@ -7,8 +7,8 @@ class RuleTest extends \PHPUnit_Framework_TestCase {
      */
     public function cellsDieWhenHavingLessThanTwoNeighbours()
     {
-        $rule = new Rule(true, 1);
-        $this->assertFalse($rule->cellStaysAlive());
+        $rule = new Rule();
+        $this->assertFalse($rule->cellStaysAlive(true, 1));
     }
 
     /**
@@ -16,8 +16,8 @@ class RuleTest extends \PHPUnit_Framework_TestCase {
      */
     public function cellsDieWhenHavingMoreThanThreeNeighbours()
     {
-        $rule = new Rule(true, 4);
-        $this->assertFalse($rule->cellStaysAlive());
+        $rule = new Rule();
+        $this->assertFalse($rule->cellStaysAlive(true, 4));
     }
 
     /**
@@ -25,8 +25,8 @@ class RuleTest extends \PHPUnit_Framework_TestCase {
      */
     public function cellsStayAliveWhenHavingTwoNeighbours()
     {
-        $rule = new Rule(true, 2);
-        $this->assertTrue($rule->cellStaysAlive());
+        $rule = new Rule();
+        $this->assertTrue($rule->cellStaysAlive(true, 2));
     }
 
     /**
@@ -34,8 +34,8 @@ class RuleTest extends \PHPUnit_Framework_TestCase {
      */
     public function cellsStayDeadWhenHavingTwoNeighbours()
     {
-        $rule = new Rule(false, 2);
-        $this->assertFalse($rule->cellStaysAlive());
+        $rule = new Rule();
+        $this->assertFalse($rule->cellStaysAlive(false, 2));
     }
 
     /**
@@ -43,8 +43,8 @@ class RuleTest extends \PHPUnit_Framework_TestCase {
      */
     public function cellsStayAliveWhenHavingThreeNeighbours()
     {
-        $rule = new Rule(true, 3);
-        $this->assertTrue($rule->cellStaysAlive());
+        $rule = new Rule();
+        $this->assertTrue($rule->cellStaysAlive(true, 3));
     }
 
     /**
@@ -52,7 +52,7 @@ class RuleTest extends \PHPUnit_Framework_TestCase {
      */
     public function cellsBecomeAliveWhenHavingThreeNeighbours()
     {
-        $rule = new Rule(false, 3);
-        $this->assertTrue($rule->cellStaysAlive());
+        $rule = new Rule();
+        $this->assertTrue($rule->cellStaysAlive(false, 3));
     }
 }
