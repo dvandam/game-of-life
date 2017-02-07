@@ -5,6 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
+                checkout scm
+                sh 'composer install'
             }
         }
         stage('Test') {
