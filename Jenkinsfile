@@ -3,16 +3,24 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
-                echo 'Building...'
-                checkout scm
-                sh 'composer install'
-            }
+            parallel(
+                message: {
+                    echo 'Building...'
+                },
+                build: {
+                    sh 'composer install'
+                }
+            )
         }
         stage('Test') {
-            steps {
-                sh 'make test'
-            }
+            parallel(
+                message: {
+                    echo 'Testing...'
+                },
+                test: {
+                    sh 'make test'
+                }
+            )
         }
         stage('Deploy') {
             steps {
