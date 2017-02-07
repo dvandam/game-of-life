@@ -14,7 +14,7 @@ pipeline {
                         echo 'Testing...'
                     },
                     test: {
-                        make test
+                        sh 'make test'
                     }
                 )
             }
