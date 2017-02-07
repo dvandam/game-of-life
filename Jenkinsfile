@@ -7,14 +7,12 @@ pipeline {
                 echo 'Building...'
             }
         }
-        parallel {
-            stage('Test') {
-                steps {
-                    echo 'Testing...'
-                }
-                steps {
-                    make test
-                }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+            steps {
+                make test
             }
         }
         stage('Deploy') {
