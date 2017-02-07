@@ -4,6 +4,6 @@ namespace GameOfLife;
 
 class Hookup {
     public function __toString() {
-        return 'Hello world'
+        return 'Hello world';
     }
 }
