@@ -9,9 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                test: {
-                    sh 'make test'
-                }
+                sh 'make test'
             }
         }
         stage('Deploy') {
