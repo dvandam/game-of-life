@@ -9,10 +9,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
-            }
-            steps {
-                make test
+                parallel (
+                    message: {
+                        echo 'Testing...'
+                    },
+                    test: {
+                        make test
+                    }
+                )
             }
         }
         stage('Deploy') {
