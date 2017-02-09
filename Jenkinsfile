@@ -14,7 +14,7 @@ pipeline {
                         sh 'make test'
                     },
                     lint: {
-                        sh '! find . -path ./vendor -prune -o -type f -name "*.php" -exec php -l {} \\; | grep -v "No syntax errors"'
+                        sh 'make lint'
                     }
                 )
             }
