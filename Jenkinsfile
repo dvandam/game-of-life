@@ -10,7 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 parallel(
-                    test: {
+                    'unit tests': {
                         sh 'make test'
                     },
                     lint: {
