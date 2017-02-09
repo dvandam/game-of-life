@@ -4,3 +4,6 @@ test: vendor/bin/phpunit
 
 lint:
 	! find . -path ./vendor -prune -o -type f -name "*.php" -exec php -l {} \; | grep -v "No syntax errors"
+
+install:
+	composer install
