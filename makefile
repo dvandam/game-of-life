@@ -7,3 +7,6 @@ lint:
 
 install:
 	composer install
+
+build:
+	composer install --no-dev

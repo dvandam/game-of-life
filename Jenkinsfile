@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Install') {
             steps {
                 sh 'make install'
             }
@@ -17,6 +17,11 @@ pipeline {
                         sh 'make lint'
                     }
                 )
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'make build'
             }
         }
         stage('Deploy') {
